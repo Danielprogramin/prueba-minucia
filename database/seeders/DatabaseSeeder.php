@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             ProjectSeeder::class,
             BlockSeeder::class,
             PieceSeeder::class,
+            UserSeeder::class,
         ]);
 
         User::factory()->create([

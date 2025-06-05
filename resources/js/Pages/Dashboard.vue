@@ -21,7 +21,7 @@ import { Head } from '@inertiajs/vue3';
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg"
                 >
                     <div class="p-6 text-gray-900">
-                        You're logged in!
+                       Bienvenido al Dashboard , puedes navegar entre el formulario de proyectos y reportes.
                     </div>
                 </div>
             </div>

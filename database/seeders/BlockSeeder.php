@@ -10,13 +10,19 @@ class BlockSeeder extends Seeder
 {
     public function run(): void
     {
-        $projects = Project::all();
+        $bloquesPorProyecto = [
+            'Conjunto Altos del Bosque' => ['Bloque 1', 'Bloque 2'],
+            'Urbanización El Prado' => ['Etapa A', 'Etapa B'],
+            'Edificio Horizonte' => ['Torre Norte', 'Torre Sur'],
+        ];
 
-        foreach ($projects as $project) {
-            for ($i = 1; $i <= 2; $i++) {
+        foreach ($bloquesPorProyecto as $projectName => $blockNames) {
+            $project = Project::where('name', $projectName)->first();
+
+            foreach ($blockNames as $blockName) {
                 Block::create([
-                    'name' => "Bloque {$i} - {$project->name}",
-                    'project_id' => $project->id,
+                    'name' => $blockName,
+                    'project_id' => $project->id
                 ]);
             }
         }

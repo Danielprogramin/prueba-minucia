@@ -4,6 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PieceRecordController;
+use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\BlockController;
+use App\Http\Controllers\PieceController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -30,4 +34,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/formulario', [PieceRecordController::class, 'store']);
 });
 
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/reporte', [ReporteController::class, 'index'])->name('reporte');
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('projects', ProjectController::class);
+    Route::resource('blocks', BlockController::class);
+    Route::resource('pieces', PieceController::class);
+});
 require __DIR__.'/auth.php';

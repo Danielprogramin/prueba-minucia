@@ -10,9 +10,9 @@ class ProjectSeeder extends Seeder
     public function run(): void
     {
         Project::insert([
-            ['name' => 'Proyecto A'],
-            ['name' => 'Proyecto B'],
-            ['name' => 'Proyecto C'],
+            ['name' => 'Conjunto Altos del Bosque'],
+            ['name' => 'Urbanización El Prado'],
+            ['name' => 'Edificio Horizonte'],
         ]);
     }
 }

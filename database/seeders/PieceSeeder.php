@@ -10,14 +10,22 @@ class PieceSeeder extends Seeder
 {
     public function run(): void
     {
-        $blocks = Block::all();
+        $nombresDePiezas = [
+            'Panel de Fachada PF-100',
+            'Losa Prefabricada LP-200',
+            'Viga Longitudinal VL-150',
+            'Dintel Reforzado DR-75',
+            'Muro Cortante MC-300',
+        ];
 
-        foreach ($blocks as $block) {
-            for ($i = 1; $i <= 3; $i++) {
+        foreach (Block::all() as $block) {
+            $cantidad = rand(3, 5);
+
+            foreach (array_slice($nombresDePiezas, 0, $cantidad) as $nombre) {
                 Piece::create([
-                    'name' => "Pieza {$i} - {$block->name}",
+                    'name' => $nombre,
                     'block_id' => $block->id,
-                    'peso_teorico' => rand(10, 50),
+                    'peso_teorico' => rand(50, 120),
                     'estado' => 'Pendiente',
                 ]);
             }
